@@ -19,6 +19,7 @@ h3 {
 
 #title {
     font-size: 40pt;
+    margin-bottom: 30pt;
 }
 
 .question {
@@ -26,13 +27,24 @@ h3 {
     padding: 10pt;
 }
 
+.intro {
+    text-align: center;
+    
+    padding: 10pt;
+    font-size: 15pt;
+}
+
 .answer {
     margin: auto;
 }
 
-#start {
+.scoreCard {
+    font-size: 15pt;
+}
+
+#start, #reset{
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 50px;
     padding: 10px 40px 10px 40px;
     font-size: 20pt;
