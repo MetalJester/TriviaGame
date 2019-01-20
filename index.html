@@ -260,9 +260,39 @@
             // start button click event listener
             $("#start").on("click", function () {    //function for starting the game
                 console.log("start button clicked"); // developer check                
-                startGame();                         // hide containers 1 and 3
+                startGame(); 
+                clock();                        // hide containers 1 and 3
                 // call function for starting the timer
             });
+
+
+            // game clock function
+            function clock() {
+                console.log("timer is running");
+                var number = 60;
+                var intervalId;
+
+                function run() {
+                    clearInterval(intervalId);
+                    intervalId = setInterval(decrement, 1000);
+                }
+
+                function decrement() {
+                    number--;
+                    $("#timer").html("Time Remaining: " + number);
+                    if (number === 0) {
+                        stop();
+                        scoreCard();
+                    }
+                }
+
+                function stop() {
+                    clearInterval(intervalId);
+                }
+
+                run();
+
+            }
 
 
 
