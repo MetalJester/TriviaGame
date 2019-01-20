@@ -18,32 +18,32 @@
 
     <div id="container1" class="container">
 
-    <div class="row">
-        <br>
-        <br>
-    </div>
-
-    <div id="gameBox" class="d-flex flex-column-8 justify-content-center">
-
-        <div class="col-1"></div>
-
-        <div class="col-10 bg-warning border border-dark ">
-
-            <div class="row">
-                <h1 id="title">Kiwi Trivia Time!</h1>
-            </div>
-
-            <div class="intro">Click "start" to test your knowledge of the kiwi fruit.</div>
-
-            <div class="row">
-                <button id="start" class="btn btn-light btn-lg">START</button>
-            </div>
-
+        <div class="row">
+            <br>
+            <br>
         </div>
 
-        <div class="col-1"></div>
+        <div id="gameBox" class="d-flex flex-column-8 justify-content-center">
 
-    </div>
+            <div class="col-1"></div>
+
+            <div class="col-10 bg-warning border border-dark ">
+
+                <div class="row">
+                    <h1 id="title">Kiwi Trivia Time!</h1>
+                </div>
+
+                <div class="intro">Click "start" to test your knowledge of the kiwi fruit.</div>
+
+                <div class="row">
+                    <button id="start" class="btn btn-light btn-lg">START</button>
+                </div>
+
+            </div>
+
+            <div class="col-1"></div>
+
+        </div>
 
     </div>
 
@@ -236,13 +236,56 @@
         $(document).ready(function () {
 
 
+            function firstPage() {
+                $("#container1").show();
+                $("#container2").hide();
+                $("#container3").hide();
+            }
+
+            function startGame() {
+                $("#container1").hide();
+                $("#container2").show();
+                $("#container3").hide();
+            }
+
+            function scoreCard() {
+                $("#container1").hide();
+                $("#container2").hide();
+                $("#container3").show();
+            }
+
+            // displays just the opening page with the Start button
+            firstPage();
+
+            // start button click event listener
             $("#start").on("click", function () {    //function for starting the game
                 console.log("start button clicked"); // developer check                
-                // hide containers 1 and 3
+                startGame();                         // hide containers 1 and 3
                 // call function for starting the timer
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+            // // Timer function            
+
+            // var number = 100;
+            // var intervalid;
+
+            // function run() {
+            //     intervalId = setInterval(decrement, 1000);
+            // }
+
+            // // $("#timer").html("Time Remaing: " + number +);
 
 
 
