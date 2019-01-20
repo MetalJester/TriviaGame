@@ -18,32 +18,32 @@
 
     <div id=" container1" class="container">
 
-        <div class="row">
-            <br>
-            <br>
-        </div>
+    <div class="row">
+        <br>
+        <br>
+    </div>
 
-        <div id="gameBox">
+    <div id="gameBox" class="d-flex flex-column-8 justify-content-center">
 
-            <div class="col-1"></div>
+        <div class="col-1"></div>
 
-            <div class="col-10 bg-warning border border-dark ">
+        <div class="col-10 bg-warning border border-dark ">
 
-                <div class="row">
-                    <h1 id="title">Kiwi Trivia Time!</h1>
-                </div>
-
-                <div class="intro">Click "start" to test your knowledge of the kiwi fruit.</div>
-
-                <div class="row">
-                    <button id="start" class="btn btn-light btn-lg">START</button>
-                </div>
-
+            <div class="row">
+                <h1 id="title">Kiwi Trivia Time!</h1>
             </div>
 
-            <div class="col-1"></div>
+            <div class="intro">Click "start" to test your knowledge of the kiwi fruit.</div>
+
+            <div class="row">
+                <button id="start" class="btn btn-light btn-lg">START</button>
+            </div>
 
         </div>
+
+        <div class="col-1"></div>
+
+    </div>
 
     </div>
 
@@ -54,7 +54,7 @@
             <br>
         </div>
 
-        <div id="gameBox">
+        <div id="gameBox" class="d-flex flex-column-8 justify-content-center">
 
             <div class="col-1"></div>
 
@@ -195,7 +195,7 @@
             <br>
         </div>
 
-        <div id="gameBox">
+        <div id="gameBox" class="d-flex flex-column-8 justify-content-center">
 
             <div class="col-1"></div>
 
@@ -236,15 +236,15 @@
         $(document).ready(function () {
 
 
-            console.log("Page is loaded");
-            $("#container1").show();
-            $("#container2").hide();
-            $("#container3").hide();
+            $("#start").on("click", function () {
+                console.log("start button clicked"); // developer check
+                
+
+            });
+
 
 
         })
-
-
 
     </script>
 
