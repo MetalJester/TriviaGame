@@ -355,7 +355,12 @@
                 function decrement() {
                     number--;
                     $("#timer").html("Time Remaining: " + number);
-                    if (number === 0) {
+
+                    if (correct.length + incorrect.length === 8) {
+                        stop();
+                        scoreCard();
+
+                    } else if (number === 0) {
                         stop();
                         scoreCard();
                     }
@@ -369,10 +374,8 @@
 
             }
 
-            // function to count the score of the game
+            // functions to count the score of the game
 
-
-            //score Question 1
             $("#Q1")
 
             $("#Q1").on("click", function (event) {
