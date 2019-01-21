@@ -25,11 +25,11 @@ h3 {
 .question {
     text-align: center;
     padding: 10pt;
+    font-weight: bold;
 }
 
 .intro {
-    text-align: center;
-    
+    text-align: center;    
     padding: 10pt;
     font-size: 15pt;
 }

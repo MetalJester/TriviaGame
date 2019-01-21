@@ -72,23 +72,16 @@
 
                 <div class="row">
 
-                    <div class="answer">
+                    <div id="Q1" class="answer">
 
-
-                        <!-- <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="answer1a" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">True</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Q1" value="Q1a">
+                            <label class="form-check-label" for="inlineRadio1">A: High in fiber.</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="answer1b" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">False</label>
-                        </div> -->
-
-                        <form action="/action_page.php" id="question1">
-                            <input type="radio" name="fiber" value="true"> A. High in fiber
-                            <input type="radio" name="fiber" value="false"> B. Low in fiber
-                        </form>
-
+                            <input class="form-check-input" type="radio" name="Q1" value="Q1b">
+                            <label class="form-check-label" for="inlineRadio1">B: Low in Vitamin C.</label>
+                        </div>
 
                     </div>
 
@@ -99,18 +92,24 @@
 
                 <div class="row">
 
-                    <div class="answer">
+                    <div id="Q2" class="answer">
 
-
-                        <form action="/action_page.php" id="question2">
-                            <input type="radio" name="name" value="true"> A. New Zealand growers began calling it that.
-                            <input type="radio" name="name" value="false"> B. it is the favorite food of the kiwi bird.
-                        </form>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Q2" value="Q2a">
+                            <label class="form-check-label" for="inlineRadio1">A: it is the favorite food of the kiwi
+                                bird.</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Q2" value="Q2b">
+                            <label class="form-check-label" for="inlineRadio1">B: New Zealand growers began calling it
+                                that.</label>
+                        </div>
 
                     </div>
 
 
                 </div>
+                <!--add remaining questions once counters are working-->
 
                 <!-- <div id="question3" class="question">Botanically, kiwifruit belongs to a group of berries.</div>
 
@@ -295,27 +294,41 @@
 
             // function to count the score of the game
 
-            var correct = 0;
-            var incorrect = 0;
-            var unanswered = 2;
+            var correct = [];
+            var incorrect = [];
+            var unanswered = [];
 
-            //counting question 1 
-            var $Q1answer = $('input[name="fiber"]');
+            //score Question 1
+            $("#Q1")
 
-            function checkQuestion1() {
-                var $filtered = $Q1answer.filter(':checked');
-                if ($filtered === (val="true")) {
-                    correct++;
-                    answered--;
-                } else if ($filtered === (val="false")) {
-                    incorrect++;
-                    answered--;
+            $("#Q1").on("click", function (event) {
+                if (event.target.value == "Q1a") {
+                    correct.push(event.target.value);
+                    console.log(event.target.value);
+                    
                 }
+                else {
+                    incorrect.push(event.target.value);
+                    console.log(event.target.value);
+                    
+                }
+            })
 
-            }
+            $("#Q2").on("click", function (event) {
+                if (event.target.value == "Q2b") {
+                    correct.push(event.target.value);
+                    console.log(event.target.value);
+                    
+                }
+                else {
+                    incorrect.push(event.target.value);
+                    console.log(event.target.value);
+                    
+                }
+            })
 
-            
-          
+
+
 
 
 
