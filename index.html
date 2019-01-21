@@ -65,24 +65,29 @@
                 </div>
 
                 <div class="row">
-                    <h3 id="timer" class="bg-light text-success">Time Remaining: 60</h3>
+                    <h3 id="timer" class="bg-light text-success">Time Remaining: 15</h3>
                 </div>
 
-                <div id="question1" class="question">Kiwi fruit are high in fiber.</div>
+                <div class="question">Kiwi fruit are: </div>
 
                 <div class="row">
 
                     <div class="answer">
 
 
-                        <div class="form-check form-check-inline">
+                        <!-- <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="answer1a" value="option1">
                             <label class="form-check-label" for="inlineCheckbox1">True</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="answer1b" value="option2">
                             <label class="form-check-label" for="inlineCheckbox2">False</label>
-                        </div>
+                        </div> -->
+
+                        <form action="/action_page.php" id="question1">
+                            <input type="radio" name="fiber" value="true"> A. High in fiber
+                            <input type="radio" name="fiber" value="false"> B. Low in fiber
+                        </form>
 
 
                     </div>
@@ -90,30 +95,24 @@
 
                 </div>
 
-                <div id="question2" class="question">The kiwi fruit was given its name because it is the favorite food
-                    of the kiwi
-                    bird.</div>
+                <div id="question2" class="question">The kiwi fruit was got its name because:</div>
 
                 <div class="row">
 
                     <div class="answer">
 
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="answer2a" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">True</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="answer2b" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">False</label>
-                        </div>
+                        <form action="/action_page.php" id="question2">
+                            <input type="radio" name="name" value="true"> A. New Zealand growers began calling it that.
+                            <input type="radio" name="name" value="false"> B. it is the favorite food of the kiwi bird.
+                        </form>
 
                     </div>
 
 
                 </div>
 
-                <div id="question3" class="question">Botanically, kiwifruit belongs to a group of berries.</div>
+                <!-- <div id="question3" class="question">Botanically, kiwifruit belongs to a group of berries.</div>
 
                 <div class="row">
 
@@ -175,7 +174,7 @@
                     </div>
 
 
-                </div>
+                </div> -->
 
 
 
@@ -254,13 +253,13 @@
                 $("#container3").show();
             }
 
-            // displays just the opening page with the Start button
+            // displays just the opening page when the page is opened
             firstPage();
 
             // start button click event listener
             $("#start").on("click", function () {    //function for starting the game
                 console.log("start button clicked"); // developer check                
-                startGame(); 
+                startGame();
                 clock();                        // hide containers 1 and 3
                 // call function for starting the timer
             });
@@ -269,7 +268,7 @@
             // game clock function
             function clock() {
                 console.log("timer is running");
-                var number = 60;
+                var number = 15;
                 var intervalId;
 
                 function run() {
@@ -294,28 +293,33 @@
 
             }
 
+            // function to count the score of the game
+
+            var correct = 0;
+            var incorrect = 0;
+            var unanswered = 2;
+
+            //counting question 1 
+            var $Q1answer = $('input[name="fiber"]');
+
+            function checkQuestion1() {
+                var $filtered = $Q1answer.filter(':checked');
+                if ($filtered === (val="true")) {
+                    correct++;
+                    answered--;
+                } else if ($filtered === (val="false")) {
+                    incorrect++;
+                    answered--;
+                }
+
+            }
+
+            
+          
 
 
 
 
-
-
-
-
-
-
-
-
-            // // Timer function            
-
-            // var number = 100;
-            // var intervalid;
-
-            // function run() {
-            //     intervalId = setInterval(decrement, 1000);
-            // }
-
-            // // $("#timer").html("Time Remaing: " + number +);
 
 
 
