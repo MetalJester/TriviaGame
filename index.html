@@ -34,6 +34,7 @@
                 </div>
 
                 <div class="intro">Click "start" to test your knowledge of the kiwi fruit.</div>
+                <p>(Hint: choose carefully, your choices will disappear once you've clicked on an answer.)</p>
 
                 <div class="row">
                     <button id="start" class="btn btn-light btn-lg">START</button>
@@ -206,9 +207,9 @@
                 <div class="d-flex justify-content-center">
 
                     <div class="scoreCard">
-                        <div class="text-secondary font-weight-bold p-2">Correct: 0</div>
-                        <div class="text-secondary font-weight-bold p-2">Incorrect: 0</div>
-                        <div class="text-secondary font-weight-bold p-2">Unanswered: 5</div>
+                        <div id="numCorrect" class="text-secondary font-weight-bold p-2">Correct: 0</div>
+                        <div id="numIncorrect" class="text-secondary font-weight-bold p-2">Incorrect: 0</div>
+                        <div id="numUnanswered" class="text-secondary font-weight-bold p-2">Unanswered: 5</div>
                     </div>
 
 
@@ -246,10 +247,19 @@
                 $("#container3").hide();
             }
 
+            var correct = [];
+            var incorrect = [];
+            var unanswered = [];
+
             function scoreCard() {
                 $("#container1").hide();
                 $("#container2").hide();
                 $("#container3").show();
+                $("#numCorrect").text("Correct: " + correct.length);
+                $("#numIncorrect").text("Incorrect: " + incorrect.length);
+                var answered = (correct.length + incorrect.length);
+                console.log(answered + "questions were answered");
+                $("#numUnanswered").text("Unanswered: " + (2 - answered));
             }
 
             // displays just the opening page when the page is opened
@@ -294,9 +304,6 @@
 
             // function to count the score of the game
 
-            var correct = [];
-            var incorrect = [];
-            var unanswered = [];
 
             //score Question 1
             $("#Q1")
@@ -304,26 +311,26 @@
             $("#Q1").on("click", function (event) {
                 if (event.target.value == "Q1a") {
                     correct.push(event.target.value);
-                    console.log(event.target.value);
-                    
+                    $("#Q1").hide();
+
                 }
                 else {
                     incorrect.push(event.target.value);
-                    console.log(event.target.value);
-                    
+                    $("#Q1").hide();
+
                 }
             })
 
             $("#Q2").on("click", function (event) {
                 if (event.target.value == "Q2b") {
                     correct.push(event.target.value);
-                    console.log(event.target.value);
-                    
+                    $("#Q2").hide();
+
                 }
                 else {
                     incorrect.push(event.target.value);
-                    console.log(event.target.value);
-                    
+                    $("#Q2").hide();
+
                 }
             })
 
