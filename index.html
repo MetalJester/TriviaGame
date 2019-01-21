@@ -234,6 +234,17 @@
 
         $(document).ready(function () {
 
+            $("#reset").on("click", function () {    //function for restarting the game
+                console.log("reset button clicked"); // developer check                
+                firstPage();
+                correct = [];
+                incorrect = [];
+                unanswered = [];
+                $("#Q1").show();
+                console.log("#Q1");
+                $("#Q2").show();
+                console.log("Q2");
+            });
 
             function firstPage() {
                 $("#container1").show();
@@ -268,11 +279,11 @@
             // start button click event listener
             $("#start").on("click", function () {    //function for starting the game
                 console.log("start button clicked"); // developer check                
-                startGame();
-                clock();                        // hide containers 1 and 3
-                // call function for starting the timer
+                startGame();                           // reveal container 2
+                clock();                                // star the countdown
             });
 
+            
 
             // game clock function
             function clock() {
